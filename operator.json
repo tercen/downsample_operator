@@ -1,26 +1,17 @@
 {
-  "name": "Random label",
-  "description": "Returns random labels to sample data",
+  "name": "Downsample",
+  "description": "Downsample data",
   "tags": ["sampling"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/randomlabel_operator"],
+  "urls": ["https://github.com/tercen/downsample_operator"],
   "properties": [
     {
     "kind": "StringProperty",
     "name": "seed",
     "defaultValue": "NULL",
     "description": "Seed for random number generation. If NULL, a random seed is taken."
-    },
-    {
-    "kind": "EnumeratedProperty",
-    "name": "method",
-    "defaultValue": "uniform",
-    "values": [
-      "uniform",
-      "downsampling"
-    ],
-    "description": "Method used to assign labels (uniform value or downsampling)."
-  }]
+    }
+    ]
 }
 
 
