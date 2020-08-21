@@ -1,8 +1,8 @@
-# Random label operator
+# Downsample operator
 
 ##### Description
 
-The `Random label` operator returns a random label per column. It allows one to subsample or downsample the data.
+The `Downsample` operator returns a random label per column. It allows one to subsample or downsample the data.
 
 ##### Usage
 
