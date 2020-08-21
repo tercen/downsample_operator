@@ -2,24 +2,26 @@
 
 ##### Description
 
-The `Downsample` operator returns a random label per column. It allows one to subsample or downsample the data.
+The `Downsample` allows one to downsample the data.
 
 ##### Usage
 
 Input projection|.
 ---|---
-`col`        | numeric, input data, per cell 
+`column`        | numeric, input data, per cell 
+`colour`        | factor, groups
 
 Output relations|.
 ---|---
-`label`        | numeric, median of the input data
+`label`        | character, `pass` or `fail`
+
+Parameters|.
+---|---
+`seed`        |  random seed
 
 ##### Details
 
+A random subset of each group is assigned a `pass` value: the size of the subset is the same as the smallest group. This method is typically used to handle unbalanced sample sizes between group.
 
-#### References
-
-
-##### See Also
 
 

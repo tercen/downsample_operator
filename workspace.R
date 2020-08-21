@@ -9,54 +9,32 @@ getOption("tercen.stepId")
 
 ctx = tercenCtx()
 
-do.unifsampling <- FALSE
-do.downsampling <- TRUE
+if(!ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
 
-# if(ctx$op.value('method') == "uniform") do.unifsampling <- TRUE
-# if(ctx$op.value('method') == "downsampling") do.downsampling <- TRUE
-# 
-# if(!ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
-
-if(do.unifsampling) {
+downSample <- function (.ci, group) {
   
-  data.frame(
-    .ci = seq(from=0, to=ctx$cschema$nRows - 1),
-    sample = runif(ctx$cschema$nRows, 0.0, 100.0)
-  ) %>%
+  df <- data.frame(.ci, group = as.factor(group))
   
-    ctx$addNamespace() %>%
-    ctx$save()
-
-} else if(do.downsampling) {
+  minClass <- min(table(group))
+  df$label <- 0
   
-  downSample <- function (.ci, group) {
-    
-    df <- data.frame(.ci, group = as.factor(group))
-    
-    minClass <- min(table(group))
-    df$label <- 0
-    
-    df <- ddply(df, .(group), function(dat, n) {
-      dat[sample(seq(along = dat$group),  n), "label"] <- 1
-      return(dat)
-    }, n = minClass)
-    df$label <- ifelse(df$label == 1, "pass", "fail")
-    
-    return(df)
-  }
+  df <- ddply(df, .(group), function(dat, n) {
+    dat[sample(seq(along = dat$group),  n), "label"] <- 1
+    return(dat)
+  }, n = minClass)
+  df$label <- ifelse(df$label == 1, "pass", "fail")
   
-  library(plyr)
-  
-  .ci <- c(ctx$select(".ci")[[1]])
-  group <- c(as.factor(ctx$select(".colorLevels")[[1]]))
-  group <- group[!duplicated(.ci)]
-  .ci <- .ci[!duplicated(.ci)]
-  df <- downSample(.ci, group)
-  df %>%
-    ctx$addNamespace() %>%
-    ctx$save()
-  
-} else {
-  stop("Wrong sampling method.")
+  return(df)
 }
+
+.ci <- c(ctx$select(".ci")[[1]])
+group <- c(as.factor(ctx$select(".colorLevels")[[1]]))
+dups <- !duplicated(.ci)
+group <- group[dups]
+.ci <- .ci[dups]
+
+df <- downSample(.ci, group)
+df %>%
+  ctx$addNamespace() %>%
+  ctx$save()
 
