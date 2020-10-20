@@ -1,25 +1,28 @@
 library(tercen)
+library(plyr)
 library(dplyr)
 
-options("tercen.workflowId" = "7eee20aa9d6cc4eb9d7f2cc2430313b6")
-options("tercen.stepId"     = "72ba5705-6531-40d5-9d35-399fff4e917d")
-
-getOption("tercen.workflowId")
-getOption("tercen.stepId")
+options("tercen.workflowId" = "d330322c43363eb4f9b27738ef0042b9")
+options("tercen.stepId"     = "1ae42627-e9ce-4d9f-9797-8700adfd7718")
 
 ctx = tercenCtx()
 
-if(!ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
+if(!is.null(ctx$op.value('seed')) && !ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
+
+min_n <- 0
+if(!is.null(ctx$op.value('min_n'))) min_n <- as.numeric(ctx$op.value('min_n')) 
 
 downSample <- function (.ci, group) {
   
   df <- data.frame(.ci, group = as.factor(group))
   
-  minClass <- min(table(group))
+  minClass <- max(min_n, min(table(group))) # if 0 (default) or lower than min samp size, get min samp size
+  
   df$label <- 0
   
   df <- ddply(df, .(group), function(dat, n) {
-    dat[sample(seq(along = dat$group),  n), "label"] <- 1
+    n_corrected <- min(length(dat$group), n) #if specified n > samp size, get samp size
+    dat[sample(seq(along = dat$group),  n_corrected), "label"] <- 1
     return(dat)
   }, n = minClass)
   df$label <- ifelse(df$label == 1, "pass", "fail")

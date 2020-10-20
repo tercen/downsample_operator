@@ -1,20 +1,25 @@
 library(tercen)
-library(dplyr)
 library(plyr)
+library(dplyr)
 
 ctx = tercenCtx()
 
-if(!ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
+if(!is.null(ctx$op.value('seed')) && !ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
+
+min_n <- 0
+if(!is.null(ctx$op.value('min_n'))) min_n <- as.numeric(ctx$op.value('min_n')) 
 
 downSample <- function (.ci, group) {
   
   df <- data.frame(.ci, group = as.factor(group))
   
-  minClass <- min(table(group))
+  minClass <- max(min_n, min(table(group))) # if 0 (default) or lower than min samp size, get min samp size
+  
   df$label <- 0
   
   df <- ddply(df, .(group), function(dat, n) {
-    dat[sample(seq(along = dat$group),  n), "label"] <- 1
+    n_corrected <- min(length(dat$group), n) #if specified n > samp size, get samp size
+    dat[sample(seq(along = dat$group),  n_corrected), "label"] <- 1
     return(dat)
   }, n = minClass)
   df$label <- ifelse(df$label == 1, "pass", "fail")

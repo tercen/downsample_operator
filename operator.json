@@ -10,6 +10,12 @@
     "name": "seed",
     "defaultValue": "NULL",
     "description": "Seed for random number generation. If NULL, a random seed is taken."
+    },
+    {
+    "kind": "DoubleProperty",
+    "name": "min_n",
+    "defaultValue": 0,
+    "description": "Minimal sample size for downsampling. For each category, the minimal value between the category sample size and min_n will be taken for downsampling."
     }
     ]
 }
