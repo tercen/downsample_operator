@@ -1,0 +1,20 @@
+{
+  "kind": "OperatorUnitTest",
+  "name": "downsample",
+  "namespace": "test",
+  "propertyValues": [
+    {
+    "kind": "PropertyValue",
+    "name": "seed",
+    "value": "42"
+  }
+  ],
+  "inputDataUri": "groups_series_measurement2_exp.tsv",
+  "outputDataUri": ["table1.csv","table2.csv"],
+  "columns": ["Variable"],
+  "rows": [],
+  "colors": ["Group"],
+  "labels": [],
+  "yAxis": "Measurement",
+  "xAxis": ""
+}
