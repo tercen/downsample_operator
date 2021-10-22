@@ -1,0 +1,20 @@
+{
+  "kind": "TableSchema",
+  "columns": [
+    {
+      "kind": "ColumnSchema",
+      "name": ".ci",
+      "type": "int32"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "test.group",
+      "type": "string"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "test.label",
+      "type": "string"
+    }
+    ]
+}
