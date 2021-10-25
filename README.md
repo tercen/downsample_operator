@@ -2,7 +2,7 @@
 
 ##### Description
 
-The `Downsample` allows one to downsample the data.
+The `Downsample` allows one to downsample the data to make it more manageable.
 
 ##### Usage
 
