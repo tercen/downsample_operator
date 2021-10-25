@@ -1,7 +1,7 @@
 {
   "name": "Downsample",
   "description": "Removes data points from a set to make it more manageable. Uses a set method such as integer factor.",
-  "tags": ["sampling"],
+  "tags": ["data wrangling","sampling"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/downsample_operator"],
   "properties": [
