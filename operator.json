@@ -6,10 +6,10 @@
   "urls": ["https://github.com/tercen/downsample_operator"],
   "properties": [
     {
-    "kind": "StringProperty",
+    "kind": "DoubleProperty",
     "name": "seed",
-    "defaultValue": "NULL",
-    "description": "Seed for random number generation. If NULL, a random seed is taken."
+    "defaultValue": -1,
+    "description": "Seed for random number generation. If -1, a random seed is taken."
     },
     {
     "kind": "DoubleProperty",
