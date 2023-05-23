@@ -2,10 +2,6 @@ library(tercen)
 library(plyr)
 library(dplyr)
 
-# http://127.0.0.1:5402/test/w/149395de86cec5641a6345ce78023e3b/ds/9df03bfe-37eb-4719-a9c8-7ba997a12f33
-# http://127.0.0.1:5400/test/w/149395de86cec5641a6345ce78023e3b/ds/b01ca698-422d-482b-94ff-5cd33f922349
-# options("tercen.workflowId" = "149395de86cec5641a6345ce78023e3b")
-# options("tercen.stepId"     = "9df03bfe-37eb-4719-a9c8-7ba997a12f33")
 ctx = tercenCtx()
 
 
@@ -13,7 +9,6 @@ seed <- ctx$op.value('seed', as.integer, -1)
 if( seed > 0){
   set.seed(seed)
 }
-# if(!is.null(ctx$op.value('seed')) && !ctx$op.value('seed') == "NULL") set.seed(as.integer(ctx$op.value('seed')))
 
 # min_n <- 10
 min_n <- ctx$op.value('min_n', as.double, 0)
@@ -22,7 +17,12 @@ min_n <- ctx$op.value('min_n', as.double, 0)
 downSample <- function (.ci, group) {
   df <- data.frame(.ci, group = as.factor(group))  
   
-  minClass <- min(min_n, min(table(group))) # if 0 (default) or lower than min samp size, get min samp size
+  if(min_n > 0){
+    minClass <- min(min_n, min(table(group))) # if 0 (default) or lower than min samp size, get min samp size  
+  }else{
+    minClass <- min(table(group))
+  }
+  
 
   df$label <- 0
   

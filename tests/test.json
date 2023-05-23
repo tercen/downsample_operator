@@ -9,7 +9,7 @@
     "value": "42"
   }
   ],
-  "inputDataUri": "groups_series_measurement2_exp.tsv",
+  "inputDataUri": "groups_series_measurement2_exp_unb.tsv",
   "outputDataUri": ["table1.csv","table2.csv"],
   "columns": ["Variable"],
   "rows": [],
