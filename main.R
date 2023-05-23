@@ -47,6 +47,12 @@ gt <- table(group)
 
 df <- downSample(.ci, group)
 
+df[ctx$yAxis[[1]]] <- ctx$select(".y")
+
+
+
+
+
 # table(df$label)
 
 df %>%
