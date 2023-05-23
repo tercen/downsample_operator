@@ -4,8 +4,8 @@ library(dplyr)
 
 
 # http://127.0.0.1:5400/test/w/149395de86cec5641a6345ce78023e3b/ds/b01ca698-422d-482b-94ff-5cd33f922349
-options("tercen.workflowId" = "149395de86cec5641a6345ce78023e3b")
-options("tercen.stepId"     = "b01ca698-422d-482b-94ff-5cd33f922349")
+# options("tercen.workflowId" = "149395de86cec5641a6345ce78023e3b")
+# options("tercen.stepId"     = "b01ca698-422d-482b-94ff-5cd33f922349")
 ctx = tercenCtx()
 
 
@@ -45,7 +45,7 @@ group <- c(as.factor(ctx$select(".colorLevels")[[1]]))
 # .ci <- .ci[dups]
 
 df <- downSample(.ci, group)
-print(df)
+
 df %>%
   ctx$addNamespace() %>%
   ctx$save()
