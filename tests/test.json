@@ -7,6 +7,11 @@
     "kind": "PropertyValue",
     "name": "seed",
     "value": "42"
+  },
+  {
+    "kind": "PropertyValue",
+    "name": "min_n",
+    "value": "10"
   }
   ],
   "inputDataUri": "groups_series_measurement2_exp_unb.tsv",
