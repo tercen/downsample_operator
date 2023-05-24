@@ -4,26 +4,23 @@ library(dplyr)
 
 ctx = tercenCtx()
 
-
 seed <- ctx$op.value('seed', as.integer, -1)
 if( seed > 0){
   set.seed(seed)
 }
 
-# min_n <- 10
-min_n <- ctx$op.value('min_n', as.double, 0)
-# if(!is.null(ctx$op.value('min_n'))) min_n <- as.numeric(ctx$op.value('min_n')) 
 
-downSample <- function (.ci, group) {
+min_n <- ctx$op.value('min_n', as.double, 0)
+
+downSample <- function (.ci, group, gt) {
   df <- data.frame(.ci, group = as.factor(group))  
   
   if(min_n > 0){
-    minClass <- min(min_n, min(table(group))) # if 0 (default) or lower than min samp size, get min samp size  
+    minClass <- min(min_n, gt) 
   }else{
-    minClass <- min(table(group))
+    minClass <- gt
   }
   
-
   df$label <- 0
   
   df <- ddply(df, .(group), function(dat, n) {
@@ -45,10 +42,7 @@ gt <- table(group)
 # group <- group[dups]
 # .ci <- .ci[dups]
 
-df <- downSample(.ci, group)
-
-df[ctx$yAxis[[1]]] <- ctx$select(".y")
-
+df <- downSample(.ci, group, gt)
 
 df %>%
   ctx$addNamespace() %>%
