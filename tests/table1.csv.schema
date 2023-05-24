@@ -15,11 +15,6 @@
       "kind": "ColumnSchema",
       "name": "test.label",
       "type": "string"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "test.Measurement",
-      "type": "double"
     }
     ]
 }
