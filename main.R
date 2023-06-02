@@ -3,7 +3,6 @@ library(dplyr)
 
 ctx = tercenCtx()
 
-n <- ctx$op.value('n', as.double, 1000)
 seed <- ctx$op.value('seed', as.integer, -1)
 if(seed > 0) set.seed(seed)
 

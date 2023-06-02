@@ -14,7 +14,8 @@ Input data|.
 
 Output data|.
 ---|---
-`random_int`        | character, `pass` or `fail`, per column
+`random_int`        | Random sequence of integers, per group
+`random_perc`       | Cumulative percentage of the sequence of integers, per group
 
 Settings|.
 ---|---
