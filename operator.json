@@ -1,7 +1,7 @@
 {
   "name": "Downsample",
-  "description": "Removes data points from a set to make it more manageable. Uses a set method such as integer factor.",
-  "tags": ["data wrangling","sampling"],
+  "description": "Generate a random sequence to filter down or balance a dataset.",
+  "tags": ["data wrangling", "data preprocessing"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/downsample_operator"],
   "properties": [
@@ -10,14 +10,8 @@
     "name": "seed",
     "defaultValue": -1,
     "description": "Seed for random number generation. If -1, a random seed is taken."
-    },
-    {
-    "kind": "DoubleProperty",
-    "name": "min_n",
-    "defaultValue": 0,
-    "description": "Minimal sample size for downsampling. For each category, the minimal value between the category sample size and min_n will be taken for downsampling."
     }
-    ]
+  ]
 }
 
 
