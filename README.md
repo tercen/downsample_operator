@@ -14,8 +14,8 @@ Input data|.
 
 Output data|.
 ---|---
-`random_int`        | Random sequence of integers, per group
-`random_perc`       | Cumulative percentage of the sequence of integers, per group
+`random_sequence`        | Random sequence of integers, per group
+`random_percentage`       | Cumulative percentage of the sequence of integers, per group
 
 Settings|.
 ---|---
@@ -37,14 +37,14 @@ Those two factors can be used in different ways.
 
 __Filtering down to a given number of observations__
 
-- You can use the "random_int" factor
+- You can use the "random_sequence" factor
 as a filter in the next step. If you select values less or equal than 1000, this number
 of observations will be kept per group provided that colors have been specified. If no color
 has been specified, a random subset of 1000 observations will be filtered.
 
 __Filtering down to a given percentage of observations__
 - If you wish to __balance__ the dataset size among groups, apply a filter in the 
-next data step with the "random_perc" factor, keeping values that are equal or less than 100.
+next data step with the "random_percentage" factor, keeping values that are equal or less than 100.
 - If you set this value to 50, you will have for each group a size corresponding to
 50 __percent of the smallest group size__.
 - If no color factor has been specified as part of the input data, using this filter

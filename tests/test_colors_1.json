@@ -1,0 +1,27 @@
+{
+  "kind": "OperatorUnitTest",
+  "name": "test_colors_1",
+  "namespace": "ds4",
+  "inputDataUri": "test_colors_1_in.csv",
+  "outputDataUri": ["test_colors_1_out_1.csv", "test_colors_1_out_2.csv"],
+  "columns": [
+    "observation"
+  ],
+  "rows": ["variable"],
+  "colors": [
+    "color"
+  ],
+  "labels": [],
+  "yAxis": "y_values",
+  "xAxis": "",
+  "generatedOn": "06/12/2023 06:53:51 AM 2023",
+  "version": "",
+  "propertyValues": [
+    {
+      "kind": "PropertyValue",
+      "name": "seed",
+      "value": "42"
+    }
+  ],
+  "absTol": 1e-06
+}

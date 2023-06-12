@@ -18,14 +18,15 @@ if(length(ctx$colors) == 0) {
 df2 <- df %>%
   unique() %>%
   group_by(.colorLevels) %>%
-  mutate(random_int = as.double(sample(n())))
+  mutate(random_sequence = as.double(sample(n())))
 
-min_n <- df %>% summarise(ct = n()) %>% select(ct) %>% min()
+min_n <- df2 %>% summarise(ct = n()) %>% select(ct) %>% min()
 
 df_out <- df2 %>%
-  mutate(random_perc = 100 * (random_int / min_n))
+  mutate(random_percentage = 100 * (random_sequence / min_n))
 
 df_out %>%
+  ungroup() %>%
   select(-contains(".colorLevels")) %>%
   ctx$addNamespace() %>%
   ctx$save()
