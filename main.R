@@ -3,7 +3,7 @@ library(dplyr)
 
 ctx = tercenCtx()
 
-seed <- ctx$op.value('seed', as.integer, -1)
+seed <- ctx$op.value('seed', as.integer, 42)
 if(seed > 0) set.seed(seed)
 
 if(length(ctx$colors) == 0) {
