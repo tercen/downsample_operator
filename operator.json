@@ -1,17 +1,21 @@
 {
   "name": "Downsample",
   "description": "Generate a random sequence to filter down or balance a dataset.",
-  "tags": ["data wrangling", "data preprocessing"],
-  "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/downsample_operator"],
+  "tags": [
+    "preprocessing"
+  ],
+  "authors": [
+    "tercen"
+  ],
+  "urls": [
+    "https://github.com/tercen/downsample_operator"
+  ],
   "properties": [
     {
-    "kind": "DoubleProperty",
-    "name": "seed",
-    "defaultValue": -1,
-    "description": "Seed for random number generation. If -1, a random seed is taken."
+      "kind": "DoubleProperty",
+      "name": "seed",
+      "defaultValue": -1,
+      "description": "Seed for random number generation. If -1, a random seed is taken."
     }
   ]
 }
-
-
