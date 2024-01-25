@@ -1,6 +1,6 @@
 {
   "name": "Downsample",
-  "description": "Generate a random sequence to filter down or balance a dataset.",
+  "description": "Downsizes or balances a dataset.",
   "tags": [
     "preprocessing"
   ],
