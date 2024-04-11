@@ -15,5 +15,13 @@
   "yAxis": "y_values",
   "xAxis": "",
   "generatedOn": "04/11/2024 07:11:16 PM 2024",
-  "version": ""
+  "version": "",
+  "propertyValues": [
+    {
+      "kind": "PropertyValue",
+      "name": "seed",
+      "value": "42"
+    }
+  ],
+  "absTol": 1e-06
 }
