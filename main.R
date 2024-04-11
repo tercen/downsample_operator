@@ -12,15 +12,17 @@ if(length(ctx$colors) == 0) {
   df <- ctx %>%
     select(.ci) %>% 
     mutate(.colorLevels = 0L) %>%
-    as.data.table()
+    as.data.table() %>%
+    unique()
 } else {
   df <- ctx %>%
     select(.ci, .colorLevels) %>%
-    as.data.table()
+    as.data.table() %>%
+    unique()
 }
 
 setkey(df, .colorLevels)
-df[, random_sequence := sample.int(.N, replace = TRUE), by = .colorLevels]
+df[, random_sequence := sample.int(.N, replace = FALSE), by = .colorLevels]
 
 min_n <- df[, .N, by = .colorLevels][which.min(N), N]
 
