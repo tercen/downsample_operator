@@ -1,0 +1,19 @@
+{
+  "kind": "OperatorUnitTest",
+  "name": "test",
+  "namespace": "ds5",
+  "inputDataUri": "test_in.csv",
+  "outputDataUri": ["test_out_1.csv", "test_out_2.csv"],
+  "columns": [
+    "clust..event_id"
+  ],
+  "rows": ["logicle..variable"],
+  "colors": [
+    "clust.cluster_id"
+  ],
+  "labels": [],
+  "yAxis": "y_values",
+  "xAxis": "",
+  "generatedOn": "04/11/2024 07:11:16 PM 2024",
+  "version": ""
+}
