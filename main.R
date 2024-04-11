@@ -32,5 +32,6 @@ df[, .colorLevels:=NULL]
 
 df %>%
   as_tibble() %>%
+  mutate(random_sequence = as.double(random_sequence)) %>%
   ctx$addNamespace() %>%
   ctx$save()
