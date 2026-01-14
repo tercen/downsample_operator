@@ -35,19 +35,25 @@
             "crosstabMapping": "column",
             "cardinality": "1..n",
             "factors": []
-          },
-          {
-            "kind": "MetaFactor",
-            "name": "Color",
-            "type": "",
-            "description": "Grouping factor for downsampling (optional)",
-            "ontologyMapping": "color",
-            "crosstabMapping": "color",
-            "cardinality": "0..1",
-            "factors": []
           }
         ],
-        "axis": []
+        "axis": [
+          {
+            "kind": "AxisSpec",
+            "metaFactors": [
+              {
+                "kind": "MetaFactor",
+                "name": "Color",
+                "type": "",
+                "description": "Grouping factor for downsampling (optional)",
+                "ontologyMapping": "color",
+                "crosstabMapping": "color",
+                "cardinality": "0..1",
+                "factors": []
+              }
+            ]
+          }
+        ]
       }
     ]
   }
