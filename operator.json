@@ -47,23 +47,7 @@
             "factors": []
           }
         ],
-        "axis": [
-          {
-            "kind": "AxisSpec",
-            "metaFactors": [
-              {
-                "kind": "MetaFactor",
-                "name": "Measurement",
-                "type": "numeric",
-                "description": "Measurement values associated with the data of interest",
-                "ontologyMapping": "measurement",
-                "crosstabMapping": "y",
-                "cardinality": "1",
-                "factors": []
-              }
-            ]
-          }
-        ]
+        "axis": []
       }
     ]
   }
