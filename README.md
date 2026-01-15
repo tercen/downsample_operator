@@ -9,7 +9,6 @@ The `Downsample` allows one to downsample a dataset.
 Input data|.
 ---|---
 `column`        | numeric, observation IDs (events, ...)
-`y axis`        | numeric, any measurement associated with the data of interest 
 `colour`        | factor (optional), grouping factor for downsampling
 
 Output data|.
