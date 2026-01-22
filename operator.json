@@ -46,7 +46,7 @@
                 "name": "Color",
                 "type": "",
                 "description": "Grouping factor for downsampling (optional)",
-                "ontologyMapping": "color",
+                "ontologyMapping": "group",
                 "crosstabMapping": "color",
                 "cardinality": "0..1",
                 "factors": []
